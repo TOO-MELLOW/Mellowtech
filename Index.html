@@ -2,186 +2,255 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dot Go Delivery</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Arial&display=swap" rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mellow Tech Services</title>
+
+  <!-- Fonts and Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: Arial, sans-serif; background-color: #f7f7f7; color: #333; scroll-behavior: smooth; }
-    h1, h2, h3 { margin-bottom: 1rem; }
-    p { margin-bottom: 0.75rem; }
-    a { text-decoration: none; color: inherit; }
-    section { padding: 4rem 1.5rem; text-align: center; }
-    .btn { padding: 1rem 2rem; border: none; border-radius: 30px; font-weight: bold; cursor: pointer; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 0.5rem; font-size: 1rem; }
-    .btn-primary { background-color: #ff7e5f; color: #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
-    .btn-primary:hover { background-color: #feb47b; transform: scale(1.05); }
-    .btn-secondary { background-color: transparent; border: 2px solid #ff7e5f; color: #ff7e5f; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-    .btn-secondary:hover { background-color: #ff7e5f; color: #fff; transform: scale(1.05); }
+    :root {
+      --text-color: #ffffff;
+      --section-radius: 16px;
+    }
 
-    header { position: fixed; top: 0; left: 0; width: 100%; background: rgba(255, 255, 255, 0.95); box-shadow: 0 2px 4px rgba(0,0,0,0.1); z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; }
-    .logo { display: flex; align-items: center; gap: 0.5rem; }
-    .logo img { height: 80px; width:80px; }
-    nav ul { display: flex; gap: 1rem; list-style: none; }
-    nav ul li a { padding: 0.5rem 1rem; border-radius: 10px; }
-    nav ul li a:hover { background-color: #ff7e5f; color: #fff; }
-    .hamburger { display: none; font-size: 1.8rem; cursor: pointer; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    .hero { height: 100vh; display: flex; justify-content: center; align-items: center; background: linear-gradient(135deg, #ff7e5f, #feb47b); color: #fff; text-align: center; flex-direction: column; gap: 1.5rem; }
-    .hero h1 { font-size: 3rem; font-weight: bold; }
-    .hero p { font-size: 1.2rem; max-width: 600px; }
-    .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-top: 1rem; }
+    html, body {
+      font-family: 'Poppins', sans-serif;
+      height: 100%;
+      overflow-x: hidden;
+      color: var(--text-color);
+      background: linear-gradient(-45deg,#1B1464, #4BCFFA, #FF6B00,rgb(23,164,162),rgb(233,87,87),rgb(217,241,106),rgb(249,225,191),rgb(108,110,7),rgba(48,200,94,0.863),rgba(169,45,185,0.863), #FF0080);
+      background-size: 400% 400%;
+      animation: gradientBG 20s ease infinite;
+    }
 
-    .steps, .pricing-cards { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin-top: 2rem; }
-    .step, .card { background-color: #fff; padding: 2rem; border-radius: 15px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); transition: transform 0.3s ease; }
-    .step:hover, .card:hover { transform: translateY(-5px); }
-    .icon { font-size: 3rem; margin-bottom: 1rem; }
-    .price { font-size: 2rem; color: #ff7e5f; margin: 0.5rem 0; }
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
 
-    form { display: grid; gap: 1rem; max-width: 500px; margin: 2rem auto; text-align: left; background: #fff; padding: 2rem; border-radius: 15px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
-    input, textarea, select { width: 100%; padding: 0.8rem; border: 1px solid #ccc; border-radius: 10px; }
+    section {
+  background: rgba(0, 0, 0, 0.5); /* Dark transparent background */
+  border-radius: var(--section-radius);
+  margin: 2rem 1rem;
+  padding: 2rem 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
 
-    footer { background: #222; color: #ddd; padding: 2rem; font-size: 0.9rem; text-align: center; }
-    footer a { color: #ff7e5f; }
 
-    @media (max-width: 768px) {
-      nav ul { display: none; flex-direction: column; background: #fff; position: absolute; top: 70px; right: 2rem; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.2); padding: 1rem; }
-      nav ul.active { display: flex; }
-      .hamburger { display: block; }
+    header {
+      text-align: center;
+      padding: 3rem 1rem 2rem;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      background: linear-gradient(270deg, #ffffff, #ffe53b, #ff2525, #00f2ff);
+      background-size: 800% 800%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: animatedText 12s ease infinite;
+    }
+
+    @keyframes animatedText {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    header p {
+      font-size: 1.1rem;
+      margin-top: 1rem;
+      color: #ffffffcc;
+    }
+
+    h2.section-title {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 1rem;
+    }
+
+    .service-card {
+      background: rgba(255,255,255,0.05);
+      border-radius: 12px;
+      padding: 1rem;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px) scale(1.03);
+    }
+
+    .service-card i {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      color: #fff;
+    }
+
+    .service-card span {
+      display: block;
+      font-size: 0.95rem;
+    }
+
+    .testimonial {
+      font-style: italic;
+      text-align: center;
+      font-size: 1.1rem;
+    }
+
+    details {
+      max-width: 600px;
+      margin: 1rem auto;
+      padding: 1rem;
+      background: rgba(255,255,255,0.08);
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    details summary {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    form {
+      max-width: 500px;
+      margin: 2rem auto 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    input, textarea {
+      padding: 0.8rem;
+      border-radius: 10px;
+      border: none;
+      margin-bottom: 1rem;
+    }
+
+    button[type="submit"] {
+      background: #00f2ff;
+      color: #000;
+      font-weight: bold;
+      padding: 0.9rem;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button[type="submit"]:hover {
+      background: #4BCFFA;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      .services-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="logo">
-      <img src="logo.png" alt="Dot Go Delivery Logo" />
-    </div>
-    <nav>
-      <div class="hamburger">☰</div>
-      <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#how-it-works">How It Works</a></li>
-        <li><a href="#pricing">Pricing</a></li>
-        <li><a href="#request-delivery">Request Delivery</a></li>
-        <li><a href="#become-driver">Become a Driver</a></li>
-        <li><a href="#about">About Us</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
 
-  <section id="home" class="hero" data-aos="fade-in">
-    <h1>Fast, Reliable Deliveries! 🚀</h1>
-    <p>Connect with drivers already on the road for quick, eco-friendly deliveries.</p>
-    <div class="hero-buttons">
-      <a href="#request-delivery" class="btn btn-primary" data-aos="zoom-in">📦 Request Delivery</a>
-      <a href="#become-driver" class="btn btn-secondary" data-aos="zoom-in">🚗 Become a Driver</a>
+<header>
+  <h1>MellowFied Tech Solutions</h1>
+  <h2>Digitally Mellow, Technically Sharp</h2>
+  <p>
+   Your laptop deserves love, laughter, and maybe a fresh install of Windows
+  </p>
+  <p>
+    Need a new website? We’ll make it responsive, responsible, and ridiculously good looking. <br>
+    CV need a glow-up? Let’s turn that résumé into a rezoomé.
+  </p>
+  <p>Let’s CTRL + ALT + DEL your worries.
+  </p>
+</header>
+
+  <section>
+    <h2 class="section-title">🛠️ Our Gloriously Nerdy Services</h2>
+    <div class="services-grid">
+      <div class="service-card"><i class="fab fa-windows"></i><span>Windows Install & Activation</span></div>
+      <div class="service-card"><i class="fas fa-file-word"></i><span>MS Office Setup</span></div>
+      <div class="service-card"><i class="fas fa-paint-brush"></i><span>Graphic Design</span></div>
+      <div class="service-card"><i class="fas fa-file-alt"></i><span>CV Typing & Revamp</span></div>
+      <div class="service-card"><i class="fas fa-globe"></i><span>Static Website Creation</span></div>
+      <div class="service-card"><i class="fas fa-book"></i><span>Assignment Help</span></div>
+      <div class="service-card"><i class="fas fa-unlock-alt"></i><span>Password Removal</span></div>
+      <div class="service-card"><i class="fas fa-lock-open"></i><span>FRP/Google Lock Bypass</span></div>
+      <div class="service-card"><i class="fas fa-globe-africa"></i><span>Domain Setup</span></div>
+      <div class="service-card"><i class="fas fa-tools"></i><span>PC Troubleshooting</span></div>
+      <div class="service-card"><i class="fas fa-database"></i><span>Data Recovery</span></div>
+      <div class="service-card"><i class="fas fa-cogs"></i><span>Software Config</span></div>
+      <div class="service-card"><i class="fas fa-download"></i><span>Driver Updates</span></div>
+      <div class="service-card"><i class="fas fa-broom"></i><span>System Cleaning</span></div>
+      <div class="service-card"><i class="fas fa-envelope-open-text"></i><span>Email Setup</span></div>
+      <div class="service-card"><i class="fas fa-map-marker-alt"></i><span>Google Business Setup</span></div>
+      <div class="service-card"><i class="fas fa-palette"></i><span>Logo & Branding</span></div>
+      <div class="service-card"><i class="fas fa-hashtag"></i><span>Social Media Setup</span></div>
+      <div class="service-card"><i class="fas fa-file-powerpoint"></i><span>PowerPoint Makeovers</span></div>
+      <div class="service-card"><i class="fas fa-poll"></i><span>Forms & Surveys</span></div>
+      <div class="service-card"><i class="fas fa-file-pdf"></i><span>PDF Editing</span></div>
     </div>
   </section>
 
-  <section id="about" data-aos="fade-up">
-    <h2>About Us 🌍</h2>
-    <p>Dot Go connects you with nearby drivers, ensuring fast, affordable, and sustainable deliveries.</p>
+  <section>
+    <h2 class="section-title">💬 Glowing Reviews (Totally Not Written By Us)</h2>
+    <p class="testimonial">“These guys are basically the Avengers of tech. Except instead of saving the world, they saved my laptop. Which is *basically* the same.” – Busi D.</p>
   </section>
 
-  <section id="how-it-works" data-aos="fade-up">
-    <h2>How It Works 🛠️</h2>
-    <div class="steps">
-      <div class="step" data-aos="fade-right"><div class="icon">📝</div><h3>1. Request</h3><p>Fill in your delivery details.</p></div>
-      <div class="step" data-aos="zoom-in"><div class="icon">🚗</div><h3>2. Pickup</h3><p>Your driver picks up the package.</p></div>
-      <div class="step" data-aos="fade-left"><div class="icon">📬</div><h3>3. Delivery</h3><p>Your package arrives safely and on time.</p></div>
-    </div>
+  <section>
+    <h2 class="section-title">🙋‍♂️ Curious Minds Want to Know</h2>
+    <details>
+      <summary>Do your services come with a smile?</summary>
+      <p>Absolutely. You get world-class fixes *and* world-class dad jokes. No extra charge!</p>
+    </details>
+    <details>
+      <summary>Can you fix the Wi-Fi in my dreams?</summary>
+      <p>Sadly, no. But if you wake up, we’ve got your real Wi-Fi covered.</p>
+    </details>
+    <details>
+      <summary>What’s your secret sauce?</summary>
+      <p>A dash of skill, a pinch of humor, and several cups of caffeine. Shaken, not stirred.</p>
+    </details>
   </section>
 
-  <section id="pricing" data-aos="fade-up">
-    <h2>Pricing 💵</h2>
-    <div class="pricing-cards">
-      <div class="card" data-aos="fade-right"><h3>📍 Local</h3><p>0-5 km</p><p class="price">R25</p></div>
-      <div class="card" data-aos="zoom-in"><h3>🚀 Medium</h3><p>5-10 km</p><p class="price">R45</p></div>
-      <div class="card" data-aos="fade-left"><h3>🌍 Extended</h3><p>10-15 km</p><p class="price">R65</p></div>
-    </div>
-    <p>*Extra charges beyond 15 km.</p>
-  </section>
-
-  <section id="request-delivery" data-aos="fade-up">
-    <h2>Request Delivery 📦</h2>
-    <form id="delivery-form">
-      <input type="text" name="name" placeholder="Name" required />
-      <input type="tel" name="phone" placeholder="Phone" required />
-      <input type="text" name="pickup" placeholder="Pickup Address" required />
-      <input type="text" name="delivery" placeholder="Delivery Address" required />
-      <textarea name="package" placeholder="Package Description" required></textarea>
-      <textarea name="instructions" placeholder="Special Instructions"></textarea>
-      <button type="submit" class="btn btn-primary">📨 Submit</button>
+  <section>
+    <h2 class="section-title">📬 Send Us Your Digital Distress Signals</h2>
+    <form>
+      <input type="text" placeholder="Your Name (or cool alias)" required>
+      <input type="email" placeholder="Email (that you actually check)" required>
+      <textarea rows="4" placeholder="Share your tech drama or epic tales..." required></textarea>
+      <button type="submit">Launch Message 🚀</button>
     </form>
   </section>
 
-  <section id="become-driver" data-aos="fade-up">
-    <h2>Become a Driver 🚙</h2>
-    <form id="driver-form">
-      <input type="text" name="name" placeholder="Name" required />
-      <input type="tel" name="phone" placeholder="Phone" required />
-      <select name="vehicle" required>
-        <option value="">Vehicle Type</option>
-        <option>🚗 Car</option>
-        <option>🏍️ Bike</option>
-        <option>🚐 Van</option>
-      </select>
-      <input type="text" name="license" placeholder="License Number" required />
-      <input type="number" name="experience" placeholder="Years of Experience" required />
-      <button type="submit" class="btn btn-primary">✅ Apply</button>
-    </form>
-  </section>
-
-  <footer id="contact" data-aos="fade-up">
-    <p>📞 <a href="tel:+27734666595">073 466 6595</a> | ✉️ <a href="mailto:contact@dotgo.com">contact@dotgo.com</a></p>
-    <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
-    <p>© 2025 Dot Go. All rights reserved.</p>
+  <footer>
+    <p>© 2025 Mellow Tech. Powered by coffee and clever code ☕💻</p>
   </footer>
 
-  <script>
-    AOS.init({ duration: 1000, once: true });
-
-    document.querySelector('.hamburger').addEventListener('click', () => {
-      document.querySelector('.nav-links').classList.toggle('active');
-    });
-const navLinks = document.querySelector('.nav-links');
-  const navItems = document.querySelectorAll('.nav-links li a');  // Select all navbar links
-
-  // Toggle navbar on hamburger click
-  hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-  });
-
-  // Close the navbar when any link is clicked
-  navItems.forEach(item => {
-    item.addEventListener('click', () => {
-      if (navLinks.classList.contains('active')) {
-        navLinks.classList.remove('active');  // Close navbar if it's open
-      }
-    });
-  });
-    const whatsappRedirect = (form, messageTemplate) => {
-      form.addEventListener('submit', e => {
-        e.preventDefault();
-        const data = new FormData(form);
-        const message = messageTemplate(data);
-        window.open(`https://wa.me/27734666595?text=${encodeURIComponent(message)}`, '_blank');
-        alert('Form submitted!');
-        form.reset();
-      });
-    };
-
-    whatsappRedirect(document.getElementById('delivery-form'), data => 
-      `Request Delivery:%0AName: ${data.get('name')}%0APhone: ${data.get('phone')}%0APickup: ${data.get('pickup')}%0ADelivery: ${data.get('delivery')}%0APackage: ${data.get('package')}%0AInstructions: ${data.get('instructions') || 'None'}`
-    );
-
-    whatsappRedirect(document.getElementById('driver-form'), data => 
-      `Driver Application:%0AName: ${data.get('name')}%0APhone: ${data.get('phone')}%0AVehicle: ${data.get('vehicle')}%0ALicense: ${data.get('license')}%0AExperience: ${data.get('experience')} years`
-    );
-  </script>
 </body>
 </html>
