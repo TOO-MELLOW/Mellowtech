@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us – BaobabBuild | Polokwane, Limpopo</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.page-header { --bg-img: url('https://images.unsplash.com/photo-1581094651181-35942459ef62?w=1600&q=80'); }
+
+/* STORY */
+.story { background: var(--cream); display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.story p { color: var(--stone); line-height: 1.85; font-weight: 300; font-size: 1.05rem; margin-bottom: 16px; }
+.story-img-wrap { position: relative; }
+.story-img-wrap::after { content: ''; position: absolute; bottom: -18px; left: -18px; width: 50%; height: 50%; border: 3px solid var(--rust); z-index: 0; }
+.story-img { width: 100%; aspect-ratio: 3/4; object-fit: cover; position: relative; z-index: 1; }
+.timeline { margin-top: 36px; border-left: 3px solid var(--earth); padding-left: 28px; display: flex; flex-direction: column; gap: 24px; }
+.tl-item { position: relative; }
+.tl-item::before { content: ''; position: absolute; left: -37px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--rust); border: 3px solid var(--earth); }
+.tl-year { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; letter-spacing: 2px; text-transform: uppercase; color: var(--rust); margin-bottom: 4px; }
+.tl-item h4 { font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; font-weight: 700; text-transform: uppercase; color: var(--deep); margin-bottom: 4px; }
+.tl-item p { color: var(--stone); font-size: 0.88rem; line-height: 1.6; font-weight: 300; margin: 0; }
+
+/* VALUES */
+.values { background: var(--deep); }
+.values .section-tag { color: var(--gold); }
+.values h2 { color: var(--sand); margin-bottom: 8px; }
+.values-sub { color: rgba(232,213,176,0.55); max-width: 540px; line-height: 1.8; font-weight: 300; margin-bottom: 60px; }
+.values-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
+.val-card { background: rgba(255,255,255,0.03); padding: 48px 32px; border-top: 3px solid var(--earth); transition: background 0.25s; }
+.val-card:hover { background: rgba(181,101,29,0.12); }
+.val-num { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 900; color: rgba(212,160,23,0.2); line-height: 1; margin-bottom: 16px; }
+.val-card h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 1.1rem; font-weight: 700; text-transform: uppercase; color: var(--sand); letter-spacing: 1px; margin-bottom: 10px; }
+.val-card p { color: rgba(232,213,176,0.5); font-size: 0.9rem; line-height: 1.7; font-weight: 300; }
+
+/* TEAM */
+.team { background: var(--cream); }
+.team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 52px; }
+.team-card { background: var(--white); overflow: hidden; transition: transform 0.3s; }
+.team-card:hover { transform: translateY(-6px); }
+.team-img { width: 100%; aspect-ratio: 3/4; object-fit: cover; display: block; filter: grayscale(30%); transition: filter 0.3s; }
+.team-card:hover .team-img { filter: grayscale(0); }
+.team-info { padding: 22px 20px; border-top: 3px solid var(--earth); }
+.team-info h4 { font-family: 'Barlow Condensed', sans-serif; font-size: 1.05rem; font-weight: 700; text-transform: uppercase; color: var(--deep); letter-spacing: 1px; margin-bottom: 4px; }
+.team-info span { font-size: 0.85rem; color: var(--rust); font-weight: 500; }
+
+/* CERTS */
+.certs { background: var(--sand); }
+.certs h2 { margin-bottom: 52px; }
+.certs-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.cert-card { background: var(--white); padding: 40px 28px; text-align: center; border-bottom: 4px solid transparent; transition: border-color 0.25s; }
+.cert-card:hover { border-bottom-color: var(--rust); }
+.cert-logo { font-size: 3rem; margin-bottom: 16px; display: block; }
+.cert-card h4 { font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; font-weight: 700; text-transform: uppercase; color: var(--deep); letter-spacing: 1px; margin-bottom: 8px; }
+.cert-card p { font-size: 0.88rem; color: var(--stone); line-height: 1.6; font-weight: 300; }
+
+@media (max-width: 900px) {
+  .story, .team-grid, .certs-grid { grid-template-columns: 1fr 1fr; }
+  .values-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .team-grid, .certs-grid, .values-grid { grid-template-columns: 1fr; }
+  .story { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo">Baobab<span>Build</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="contact.html" class="nav-cta">Get a Quote</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <div><div class="page-header-tag">Our Story</div><h1>About <em>BaobabBuild</em></h1></div>
+</div>
+
+<!-- STORY -->
+<section class="story">
+  <div class="fade-up">
+    <div class="section-tag">Our History</div>
+    <h2>Rooted in <span class="accent">Limpopo</span></h2>
+    <p>BaobabBuild was founded in 2008 by a group of qualified engineers and construction professionals who saw an opportunity to deliver world-class building services to the people of Limpopo — from the inside out.</p>
+    <p>We began with a single residential project in Polokwane's Bendor suburb. Today, we manage multi-million rand government and commercial contracts across the entire province, from Polokwane to Musina, from Tzaneen to Lephalale.</p>
+    <p>As a 100% black-owned company, we are deeply committed to empowerment, skills development, and reinvesting in the communities we serve. The baobab tree — iconic to Limpopo — represents exactly who we are: deep roots, long life, and strength that endures.</p>
+    <div class="timeline">
+      <div class="tl-item"><div class="tl-year">2008</div><h4>Founded in Polokwane</h4><p>Started with residential construction in Bendor.</p></div>
+      <div class="tl-item"><div class="tl-year">2012</div><h4>First Government Contract</h4><p>Awarded first Department of Public Works project.</p></div>
+      <div class="tl-item"><div class="tl-year">2016</div><h4>CIDB Grade 7 Achieved</h4><p>Unlocking large-scale civil and building contracts.</p></div>
+      <div class="tl-item"><div class="tl-year">2019</div><h4>ISO 9001:2015 Certified</h4><p>Formalising our quality management systems.</p></div>
+      <div class="tl-item"><div class="tl-year">2024</div><h4>340+ Projects Completed</h4><p>Serving the whole of Limpopo province.</p></div>
+    </div>
+  </div>
+  <div class="story-img-wrap fade-up">
+    <img class="story-img" src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80" alt="Construction site">
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="values">
+  <div class="fade-up">
+    <div class="section-tag">What We Stand For</div>
+    <h2>Our Core <span class="accent">Values</span></h2>
+    <p class="values-sub">Every decision we make — from hiring to project delivery — is guided by these four pillars.</p>
+  </div>
+  <div class="values-grid">
+    <div class="val-card fade-up"><div class="val-num">01</div><h3>Integrity</h3><p>We say what we do and do what we say. No surprises, no hidden costs, no shortcuts.</p></div>
+    <div class="val-card fade-up"><div class="val-num">02</div><h3>Excellence</h3><p>Every brick, beam, and bolt is placed with pride. We don't settle for less than the best.</p></div>
+    <div class="val-card fade-up"><div class="val-num">03</div><h3>Community</h3><p>We hire locally, source locally, and train the next generation of Limpopo builders.</p></div>
+    <div class="val-card fade-up"><div class="val-num">04</div><h3>Innovation</h3><p>We adopt modern construction methods, technology, and sustainable building practices.</p></div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team">
+  <div class="fade-up">
+    <div class="section-tag">Leadership</div>
+    <h2>Meet the <span class="accent">Team</span></h2>
+  </div>
+  <div class="team-grid">
+    <div class="team-card fade-up">
+      <img class="team-img" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80" alt="CEO">
+      <div class="team-info"><h4>Sipho Nkosi</h4><span>Founder & CEO</span></div>
+    </div>
+    <div class="team-card fade-up">
+      <img class="team-img" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80" alt="COO">
+      <div class="team-info"><h4>Lerato Dlamini</h4><span>Chief Operations Officer</span></div>
+    </div>
+    <div class="team-card fade-up">
+      <img class="team-img" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80" alt="Engineer">
+      <div class="team-info"><h4>Johan van Wyk</h4><span>Principal Engineer</span></div>
+    </div>
+    <div class="team-card fade-up">
+      <img class="team-img" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80" alt="PM">
+      <div class="team-info"><h4>Ntombi Zulu</h4><span>Head of Project Management</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="certs">
+  <div class="fade-up">
+    <div class="section-tag">Credentials</div>
+    <h2>Certifications & <span class="accent">Accreditations</span></h2>
+  </div>
+  <div class="certs-grid">
+    <div class="cert-card fade-up"><span class="cert-logo">🏆</span><h4>CIDB Grade 7</h4><p>Enabling contracts up to R40 million in both building and civil engineering works.</p></div>
+    <div class="cert-card fade-up"><span class="cert-logo">✅</span><h4>BBBEE Level 1</h4><p>100% recognition for government and corporate preferential procurement requirements.</p></div>
+    <div class="cert-card fade-up"><span class="cert-logo">📋</span><h4>ISO 9001:2015</h4><p>Internationally recognised quality management system certification.</p></div>
+    <div class="cert-card fade-up"><span class="cert-logo">🔨</span><h4>Master Builders SA</h4><p>Member of the Master Builders Association — the mark of construction excellence in SA.</p></div>
+  </div>
+</section>
+
+<div class="cta-strip fade-up">
+  <div><h2>Let's Build Together</h2><p>Contact our team today for a free consultation and project quote.</p></div>
+  <a href="contact.html" class="btn-white">Contact Us →</a>
+</div>
+
+<footer>
+  <a href="index.html" class="footer-logo">Baobab<span>Build</span></a>
+  <p>© 2025 BaobabBuild (Pty) Ltd. · Polokwane, Limpopo</p>
+  <div class="footer-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">PAIA Manual</a></div>
+</footer>
+<script>
+const obs = new IntersectionObserver(entries => entries.forEach((e,i) => { if(e.isIntersecting){ setTimeout(()=>e.target.classList.add('visible'), i*80); obs.unobserve(e.target); } }), {threshold:0.1});
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+</script>
+</body></html>
